@@ -1,0 +1,26 @@
+{
+  "dock_apps": [
+    "app.nafeestv.alifba",
+    "app.nafeestv.kahf",
+    "app.nafeestv.salawat",
+    "app.nafeestv.baqara",
+    "app.nafeestv.sabah",
+    "app.nafeestv.masa",
+    "app.nafeestv.ruqya",
+    "app.nafeestv.anasheed",
+    "app.nafeestv.tarteel",
+    "app.nafeestv.amma",
+    "app.nafeestv.tabarak",
+    "app.nafeestv.sakina",
+    "app.nafeestv.firaqiya",
+    "app.nafeestv.tawba",
+    "app.nafeestv.muneera",
+    "com.majnioui.tv.prayer",
+    "com.netflix.ninja",
+    "com.google.android.youtube.tv"
+  ],
+  "shamsi_date": true,
+  "wallpaper": false,
+  "wallpaper_dim": 25,
+  "dock_opacity": 70
+}

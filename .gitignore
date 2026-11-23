@@ -1,0 +1,14 @@
+nafees-app/build/
+nafees-app/app/build/
+nafees-app/.gradle/
+nafees-app/local.properties
+nafees-app/app/src/kahf/res/raw/
+*.apk
+.DS_Store
+design/*.png
+design/m-*.jpg
+design/wp-*.jpg
+# Kept on this computer, never published: the sheikh's original photos, working drafts, one TV's own app order.
+صور-الشيخ/
+design/
+series-ideas/

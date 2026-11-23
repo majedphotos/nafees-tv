@@ -1,0 +1,7 @@
+{
+  "name": "nafees-tv",
+  "owner": { "name": "majedphotos" },
+  "plugins": [
+    { "name": "nafees-tv", "source": "./", "description": "شاشة الشيخ أحمد النفيس على تلفزيونك: ألفبائية النفيس، وتلاواته، والأذان بصوته", "version": "1.0.0" }
+  ]
+}

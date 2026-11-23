@@ -1,0 +1,49 @@
+plugins { id 'com.android.application' }
+
+android {
+    namespace 'app.nafeestv'
+    compileSdk 34
+
+    defaultConfig {
+        minSdk 26
+        targetSdk 34
+        versionCode 5
+        versionName '1.0'
+        buildConfigField 'double', 'LAT', project.property('nafees.lat')
+        buildConfigField 'double', 'LON', project.property('nafees.lon')
+        buildConfigField 'int', 'METHOD', project.property('nafees.method')
+    }
+
+    // One small app per card, so each gets its own tile on the home screen. The cards and their
+    // videos come from sources.json at the repo root (one file to edit); the Kahf card carries the reminders and the adhan.
+    flavorDimensions = ['item']
+    def sources = new groovy.json.JsonSlurper().parse(rootProject.file('../sources.json'))
+    productFlavors {
+        sources.cards.each { card ->
+            create(card.id) {
+                dimension 'item'
+                applicationId "app.nafeestv.${card.id}"
+                resValue 'string', 'app_name', card.name
+                buildConfigField 'String', 'VIDEO', "\"${card.video}\""
+                buildConfigField 'String', 'LIST', "\"${card.list ?: ''}\""
+                buildConfigField 'boolean', 'REMINDERS', card.reminders ? 'true' : 'false'
+                buildConfigField 'boolean', 'LATEST', card.latest ? 'true' : 'false'
+            }
+        }
+    }
+
+    buildFeatures { buildConfig true }
+
+    buildTypes {
+        release {
+            minifyEnabled false
+            // Sideloaded over ADB like the launcher: signed with the debug key.
+            signingConfig signingConfigs.debug
+        }
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_17
+        targetCompatibility JavaVersion.VERSION_17
+    }
+}
